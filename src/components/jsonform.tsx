@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import {
   Tooltip,
@@ -11,6 +10,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { DownloadIcon } from "lucide-react";
+import { useState } from "react";
+import screenConfigData from '../assets/screen-config-data.json';
 
 // JSON structure to emulate
 const initialScreens: Screen[] = [
@@ -116,11 +117,19 @@ type Screen = {
   config: Record<string, { value: any; name: string; description: string }>;
 };
 
-export default function ScreenConfigForm() {
-  const [screens, setScreens] = useState<Screen[]>(initialScreens);
-  const [globalConfig, setGlobalConfig] = useState(initialGlobalConfig);
+export default function ScreenConfigForm(){
+  const [screens, setScreens] = useState(screenConfigData.screens as Screen[]);
+  const [globalConfig, setGlobalConfig] = useState(screenConfigData.globalConfig);
   const [jsonUrl, setJsonUrl] = useState<string | null>(null);
 
+  // useEffect(() => {
+  //   fetch("./src/assets/screen-config-data.json").then(res => res.json())
+  //   .then(json => {
+  //     console.log(json)
+  //     // setScreens(json.screens);
+  //     // setGlobalConfig(json.globalConfig);
+  //   })
+  // }, []);
   // Handle checkbox and config field changes
   const handleCheckboxChange = (
     index: number,
