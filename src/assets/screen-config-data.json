@@ -1,0 +1,89 @@
+{
+  "screens": [
+    {
+      "name": "splashscreen",
+      "isChecked": true,
+      "config": {
+        "isSplashButtonBottom": {
+          "value": true,
+          "name": "Splash screen button at the bottom",
+          "description": "If true, the button will be at the bottom of the screen, otherwise it will be at the top"
+        },
+        "videoOnSplash": {
+          "value": true,
+          "name": "Video on splash screen",
+          "description": "If true, the splash screen will have a video, otherwise it will have an image carusel"
+        }
+      }
+    },
+    {
+      "name": "where_to_eat_screen",
+      "isChecked": true,
+      "config": {}
+    },
+    {
+      "name": "order_screen",
+      "isChecked": true,
+      "config": {
+        "isSidebarLeft": {
+          "value": true,
+          "name": "Sidebar on the left",
+          "description": "If true, the sidebar will be on the left, otherwise it will be on the right"
+        },
+        "home": {
+          "value": true,
+          "name": "Home",
+          "description": "If true, the home button will be visible"
+        },
+        "offers": {
+          "value": true,
+          "name": "Offers",
+          "description": "If true, the offers button will be visible"
+        }
+      }
+    },
+    {
+      "name": "order_recap_screen",
+      "isChecked": true,
+      "config": {
+        "groupedByCategory": {
+          "value": true,
+          "name": "Grouped by category",
+          "description": "If true, the items will be grouped by category, otherwise they will be displayed in a list"
+        },
+        "callToActionTop": {
+          "value": true,
+          "name": "Call to action at the top",
+          "description": "If true, the call to action will be at the top of the screen, otherwise it will be at the bottom"
+        },
+        "areSameItemsGrouped": {
+          "value": true,
+          "name": "Same items grouped",
+          "description": "If true, the same items will be grouped, otherwise they will be displayed separately"
+        },
+        "badgeForOneElement": {
+          "value": true,
+          "name": "Badge for one element",
+          "description": "If true, the badge will be displayed for one element, otherwise it will be displayed for more than one element"
+        }
+      }
+    },
+    {
+      "name": "select_payment_screen",
+      "isChecked": true,
+      "config": {}
+    },
+    {
+      "name": "post_payment_screen",
+      "isChecked": true,
+      "config": {}
+    }
+  ],
+  "globalConfig": {
+    "isDarkMode": {
+      "value": true,
+      "name": "Dark mode",
+      "description": "If true, the app will be in dark mode, otherwise it will be in light mode"
+    }
+  }
+}
