@@ -66,13 +66,16 @@ export default function ScreenConfigForm() {
   };
 
   return (
-    <div className="w-full mx-auto p-6 bg-white rounded-lg shadow-md">
-      <h1 className="text-6xl font-bold mb-6 text-black">
+    <div className=" mx-auto p-6 bg-white rounded-lg shadow-md">
+      <h1 className="text-6xl font-extrabold mb-8 text-gray-900 leading-tight">
         Screen Configurations
       </h1>
       <form onSubmit={handleSubmit} className="space-y-6">
         {screens.map((screen, index) => (
-          <div key={screen.name} className="space-y-4">
+          <div
+            key={screen.name}
+            className="space-y-4 p-4 border rounded-lg shadow-lg hover:shadow-md transition-shadow"
+          >
             <h2 className="text-3xl font-semibold text-black">{screen.name}</h2>
 
             {/* isChecked checkbox */}
@@ -128,37 +131,42 @@ export default function ScreenConfigForm() {
         ))}
 
         {/* Global Config */}
-        <h2 className="text-3xl font-semibold text-black">Global Config</h2>
-        <div className="flex items-center space-x-2">
-          <Checkbox
-            id="isDarkMode"
-            checked={globalConfig.isDarkMode.value}
-            onCheckedChange={() =>
-              setGlobalConfig((prev) => ({
-                ...prev,
-                isDarkMode: {
-                  ...prev.isDarkMode,
-                  value: !prev.isDarkMode.value,
-                },
-              }))
-            }
-          />
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipContent>
-                {globalConfig.isDarkMode.description}
-              </TooltipContent>
-              <TooltipTrigger asChild>
-                <Label className="text-black" htmlFor="isDarkMode">
-                  {globalConfig.isDarkMode.name}
-                </Label>
-              </TooltipTrigger>
-            </Tooltip>
-          </TooltipProvider>
+        <div className="space-y-4 p-4 border rounded-lg shadow-lg hover:shadow-md transition-shadow">
+          <h2 className="text-3xl font-semibold text-black">Global Config</h2>
+          <div className="flex items-center space-x-2">
+            <Checkbox
+              id="isDarkMode"
+              checked={globalConfig.isDarkMode.value}
+              onCheckedChange={() =>
+                setGlobalConfig((prev) => ({
+                  ...prev,
+                  isDarkMode: {
+                    ...prev.isDarkMode,
+                    value: !prev.isDarkMode.value,
+                  },
+                }))
+              }
+            />
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipContent>
+                  {globalConfig.isDarkMode.description}
+                </TooltipContent>
+                <TooltipTrigger asChild>
+                  <Label className="text-black" htmlFor="isDarkMode">
+                    {globalConfig.isDarkMode.name}
+                  </Label>
+                </TooltipTrigger>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
         </div>
 
         {/* Submit and Download JSON */}
-        <Button type="submit" className="w-full mt-4">
+        <Button
+          type="submit"
+          className="w-full mt-4 hover:scale-105 transition-transform"
+        >
           Generate JSON
         </Button>
       </form>
@@ -169,7 +177,7 @@ export default function ScreenConfigForm() {
             download="screen-config-data.json"
             className="inline-flex items-center justify-center w-full"
           >
-            <Button className="w-full">
+            <Button className="w-full mt-4 hover:scale-105 transition-transform">
               <DownloadIcon className="mr-2 h-4 w-4" />
               Download JSON
             </Button>
