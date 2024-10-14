@@ -57,6 +57,7 @@ const ThemeForm = () => {
         {/* Button to generate and download the updated JSON */}
         <Button
           type="submit"
+          variant="violet"
           className="ms-auto hover:scale-105 transition-transform"
         >
           Download JSON

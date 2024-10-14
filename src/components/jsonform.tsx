@@ -78,6 +78,7 @@ export default function ScreenConfigForm() {
           {/* Submit and Download JSON */}
           <Button
             type="submit"
+            variant="violet"
             className=" hover:scale-105 ms-auto transition-transform"
           >
             Download JSON
