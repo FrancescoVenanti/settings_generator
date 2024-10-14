@@ -52,7 +52,7 @@
           "description": "If true, the items will be grouped by category, otherwise they will be displayed in a list"
         },
         "callToActionTop": {
-          "value": false,
+          "value": true,
           "name": "Call to action at the top",
           "description": "If true, the call to action will be at the top of the screen, otherwise it will be at the bottom"
         },
@@ -62,7 +62,7 @@
           "description": "If true, the same items will be grouped, otherwise they will be displayed separately"
         },
         "badgeForOneElement": {
-          "value": false,
+          "value": true,
           "name": "Badge for one element",
           "description": "If true, the badge will be displayed for one element, otherwise it will be displayed for more than one element"
         }
@@ -70,11 +70,6 @@
     },
     {
       "name": "select_payment_screen",
-      "isChecked": true,
-      "config": {}
-    },
-    {
-      "name": "select_tentcard_number_screen",
       "isChecked": true,
       "config": {}
     },

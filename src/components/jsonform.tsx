@@ -24,7 +24,6 @@ export default function ScreenConfigForm() {
   const [globalConfig, setGlobalConfig] = useState(
     screenConfigData.globalConfig
   );
-  const [jsonUrl, setJsonUrl] = useState<string | null>(null);
 
   const handleCheckboxChange = (
     index: number,
@@ -57,20 +56,34 @@ export default function ScreenConfigForm() {
     );
   };
 
+  // Function to generate and trigger the JSON download
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const jsonData = JSON.stringify({ screens, globalConfig }, null, 2);
     const blob = new Blob([jsonData], { type: "application/json" });
     const url = URL.createObjectURL(blob);
-    setJsonUrl(url);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "screen-config-data.json";
+    link.click();
   };
 
   return (
     <div className=" mx-auto p-6 bg-white rounded-lg shadow-md">
-      <h1 className="text-6xl font-extrabold mb-8 text-gray-900 leading-tight">
-        Screen Configurations
-      </h1>
       <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="sticky top-2 bg-white/90 p-2 backdrop-blur-md rounded-md flex items-center mb-8">
+          <h1 className="text-4xl m-0 font-extrabold text-gray-900 leading-tight">
+            Screen Configurations
+          </h1>
+          {/* Submit and Download JSON */}
+          <Button
+            type="submit"
+            className=" hover:scale-105 ms-auto transition-transform"
+          >
+            Download JSON
+          </Button>
+        </div>
+
         {screens.map((screen, index) => (
           <div
             key={screen.name}
@@ -161,29 +174,7 @@ export default function ScreenConfigForm() {
             </TooltipProvider>
           </div>
         </div>
-
-        {/* Submit and Download JSON */}
-        <Button
-          type="submit"
-          className="w-full mt-4 hover:scale-105 transition-transform"
-        >
-          Generate JSON
-        </Button>
       </form>
-      {jsonUrl && (
-        <div className="mt-6">
-          <a
-            href={jsonUrl}
-            download="screen-config-data.json"
-            className="inline-flex items-center justify-center w-full"
-          >
-            <Button className="w-full mt-4 hover:scale-105 transition-transform">
-              <DownloadIcon className="mr-2 h-4 w-4" />
-              Download JSON
-            </Button>
-          </a>
-        </div>
-      )}
     </div>
   );
 }
